@@ -19,7 +19,7 @@ async def info_panel(username: Annotated[str, Path(min_length=5, max_length=20, 
     return f"Информация о пользователе. Имя: {username}, Возраст: {age}"
 
 @app.get("/user/{user_id}")
-async def user_panel(user_id: int = Path(ge=1, le=100, description="Enter User ID", exemple="10",)):
+async def user_panel(user_id: Annotated[int, Path(ge=1, le=100, description="Enter User ID", exemple="10")]):
     return f"Вы вошли как пользователь № {user_id}"
 
 if __name__ == "__main__":
